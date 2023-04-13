@@ -1,14 +1,14 @@
 package br.com.iagoomes.mudi.dto;
 
 import br.com.iagoomes.mudi.model.Pedido;
-import org.hibernate.validator.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 
 public class PedidoDto {
-    @NotBlank
+    @NotEmpty
     private String nomeProduto;
-    @NotBlank
+    @NotEmpty
     private String urlProduto;
-    @NotBlank
+    @NotEmpty
     private String urlImagem;
     private String descricao;
 
