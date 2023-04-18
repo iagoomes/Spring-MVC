@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -15,28 +15,40 @@
         </div>
 
         <div class="card mt-3">
-            <form class="card-body" action="/pedido/novo" method="post">
+            <form th:object="${pedidoDto}" class="card-body" action="/pedido/novo" method="post">
                 <div class="form-group">
                     <label for="nomeProduto">Produto</label>
-                    <input class="form-control" name="nomeProduto" placeholder="Nome do produto">
+                    <input th:field="*{nomeProduto}" th:errorclass="is-invalid" class="form-control" placeholder="Nome do produto">
                     <small>Informe o nome do produto.</small>
+                    <div class="invalid-feedback" th:errors="*{nomeProduto}">
+                        Erros do nome do produto
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="urlProduto">Url</label>
-                    <input class="form-control" name="urlProduto" placeholder="url do Produto">
+                    <input th:field="*{urlProduto}" th:errorclass="is-invalid" class="form-control" placeholder="url do Produto">
                     <small>Procure em um site o produto que você deseja e cole a url da página</small>
+                    <div class="invalid-feedback" th:errors="*{urlProduto}">
+                        Erros da URL do produto
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="urlImagem">Imagem</label>
-                    <input class="form-control" name="urlImagem" placeholder="url da Imagem">
+                    <input th:field="*{urlImagem}" th:errorclass="is-invalid" class="form-control" placeholder="url da Imagem">
                     <small>Procure em um site o produto que você deseja e cole a url da página</small>
+                    <div class="invalid-feedback" th:errors="*{urlImagem}">
+                        Erros da URL da imagem
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="descricao">Descrição</label>
-                    <textarea class="form-control" name="descricao" placeholder="Adicione detalhes importantes para ajudar o comprador"></textarea>
+                    <textarea th:field="*{descricao}" th:errorclass="is-invalid" class="form-control" name="descricao" placeholder="Adicione detalhes importantes para ajudar o comprador"></textarea>
+                    <div class="invalid-feedback" th:errors="*{descricao}">
+                        Erros da descrição
+                    </div>
                 </div>
 
                 <button class="btn btn-primary" type="submit">Cadastrar</button>

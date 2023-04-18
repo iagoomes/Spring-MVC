@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
-
 @Controller
 @RequestMapping("pedido")
 public class PedidoController {
@@ -23,7 +22,7 @@ public class PedidoController {
     }
 
     @GetMapping("formulario")
-    public String formulario() {
+    public String formulario(PedidoDto dto) {
         return "pedido/novo-pedido";
     }
 
