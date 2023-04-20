@@ -1,6 +1,7 @@
 package br.com.iagoomes.mudi.dto;
 
 import br.com.iagoomes.mudi.model.Pedido;
+import br.com.iagoomes.mudi.model.StatusPedido;
 import jakarta.validation.constraints.NotEmpty;
 
 public class PedidoDto {
@@ -50,6 +51,7 @@ public class PedidoDto {
         pedido.setNomeProduto(nomeProduto);
         pedido.setUrlProduto(urlProduto);
         pedido.setUrlImagem(urlImagem);
+        pedido.setStatus(StatusPedido.AGUARDANDO);
 
         return pedido;
     }
